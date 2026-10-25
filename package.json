@@ -1,6 +1,6 @@
 {
   "name": "daystamp",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Insert dates and times in your own formats from a calendar, a ribbon icon, commands or an inline trigger.",
   "main": "main.js",
   "type": "module",
