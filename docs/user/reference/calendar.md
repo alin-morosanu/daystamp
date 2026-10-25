@@ -2,6 +2,8 @@
 
 Open the calendar with the **Insert date from calendar** command, the calendar ribbon icon, the editor context menu, or **Pick from calendar…** in the `@@` list.
 
+![The calendar with the 23rd selected and today ringed, the Date+Time+Day preset chosen, and the preview "Will insert: 2026-10-23 19:06, Friday".](../../images/calendar.png)
+
 It opens on today. The day you're on is the selected day; it's filled in. Today has a ring and bold text.
 
 ## Parts

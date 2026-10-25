@@ -72,7 +72,8 @@ export class CalendarModal extends Modal {
   override onOpen(): void {
     this.renderMonth();
     this.updatePreview();
-    this.focusedCell()?.el.focus();
+    // Obsidian focuses the modal's first control after onOpen; move focus to the day afterwards.
+    this.contentEl.win.setTimeout(() => this.focusedCell()?.el.focus(), 0);
   }
 
   override onClose(): void {
