@@ -14,6 +14,8 @@ A preset is a named format that every way of inserting can use. This guide adds 
    The preview under the field updates as you type: `Preview: Sunday 25 October at 14:30`. Text in `[brackets]` is inserted as-is. To start from a common format, click one of the buttons under the field: **ISO**, **US**, **EU**, **Week number** or **Time only**.
 5. Close the editor. Your changes are already saved.
 
+![The preset editor for Date+Time, with name, format, preview, quick-format buttons, day offset, Link to daily note and Make default.](../../images/preset-editor.png)
+
 The preset now appears in the `@@` list and the calendar, and gets its own command: **Insert Meeting (dddd D MMMM [at] HH:mm)**.
 
 ## Shift the date by whole days

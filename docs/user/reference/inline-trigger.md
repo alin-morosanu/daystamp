@@ -2,6 +2,8 @@
 
 Type the trigger (`@@` by default) in a note to open a list of presets.
 
+![Typing @@+3 in a note opens the preset list, with the header "+3 days → Wed, 28 Oct" and each preset's date three days ahead.](../../images/inline-trigger.png)
+
 ## Syntax
 
 ```

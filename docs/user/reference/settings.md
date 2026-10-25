@@ -4,6 +4,8 @@ Open **Settings → Daystamp**. Every setting can also be found through the sear
 
 Changes are saved automatically, shortly after you make them and again when you close settings.
 
+![Daystamp's settings, showing the preset list with previews and the buttons to move, edit and delete each preset.](../../images/settings.png)
+
 ## Presets
 
 The list of presets. Each row shows the name, a preview of what it inserts, and buttons to move it up, move it down, edit it or delete it. Drag a row to reorder.
