@@ -34,7 +34,7 @@ Built-in presets:
 **Date** `2026-10-25`  
 **Date+Time** `2026-10-25 14:30`  
 **Date+Day** `2026-10-25 Sunday`  
-**Date+Time+Day** `2026-10-25 14:30, Sunday`
+**Date+Time+Day** `2026-10-25 14:30, Sunday`  
 **Tomorrow** `2026-10-26`  
 
 ## Install
