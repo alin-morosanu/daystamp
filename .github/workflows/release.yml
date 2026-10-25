@@ -25,7 +25,8 @@ jobs:
           tag="${GITHUB_REF_NAME}"
           test "$(node -p "require('./manifest.json').version")" = "$tag" || { echo "tag != manifest.version"; exit 1; }
           node -e "if (!require('./versions.json')['$tag']) process.exit(1)" || { echo "versions.json lacks $tag"; exit 1; }
-          awk -v t="$tag" '$0 ~ "^## \\[" t "\\]" {f=1; next} /^## \[/ {f=0} f' CHANGELOG.md > notes.md
+          # The section for this tag, up to the next section or the link references at the bottom.
+          awk -v t="$tag" '$0 ~ "^## \\[" t "\\]" {f=1; next} /^## \[/ || /^\[[^]]+\]: / {f=0} f' CHANGELOG.md > notes.md
           test -s notes.md || { echo "CHANGELOG.md has no section for $tag"; exit 1; }
       - run: npm run lint
       - run: npm test
