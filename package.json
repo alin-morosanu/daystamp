@@ -1,0 +1,52 @@
+{
+  "name": "daystamp",
+  "version": "0.1.0",
+  "description": "Insert dates and times in your own formats from a calendar, a ribbon icon, commands or an inline trigger.",
+  "main": "main.js",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "node esbuild.config.mjs",
+    "build": "tsc --noEmit -skipLibCheck && node esbuild.config.mjs production",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "bench": "BENCH=1 vitest run",
+    "lint": "eslint . --max-warnings 0 && prettier --check .",
+    "format": "prettier --write .",
+    "check-size": "node scripts/check-size.mjs",
+    "version": "node version-bump.mjs && git add manifest.json versions.json"
+  },
+  "keywords": [
+    "obsidian",
+    "date",
+    "time",
+    "calendar"
+  ],
+  "author": "Alin Morosanu",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alin-morosanu/daystamp.git"
+  },
+  "homepage": "https://github.com/alin-morosanu/daystamp#readme",
+  "bugs": {
+    "url": "https://github.com/alin-morosanu/daystamp/issues"
+  },
+  "devDependencies": {
+    "@eslint/js": "9.39.5",
+    "@eslint/json": "0.14.0",
+    "@types/node": "22.20.5",
+    "esbuild": "0.28.2",
+    "eslint": "9.39.5",
+    "eslint-plugin-obsidianmd": "0.4.2",
+    "globals": "17.13.0",
+    "obsidian": "1.14.4",
+    "prettier": "3.9.10",
+    "typescript": "5.9.3",
+    "typescript-eslint": "8.72.0",
+    "vitest": "5.0.5"
+  },
+  "overrides": {
+    "moment": "2.31.0"
+  }
+}

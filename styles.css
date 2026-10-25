@@ -1,0 +1,209 @@
+/* Daystamp. Obsidian theme variables only; sizes in em so 200% zoom and large fonts hold. */
+
+.daystamp-hidden {
+  display: none !important;
+}
+
+/* ---------- Calendar modal ---------- */
+
+.daystamp-calendar-modal {
+  width: min(24em, calc(100vw - 2em));
+}
+
+.daystamp-calendar {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75em;
+}
+
+.daystamp-calendar__nav {
+  display: flex;
+  align-items: center;
+  gap: 0.25em;
+}
+
+.daystamp-calendar__title {
+  flex: 1;
+  font-weight: var(--font-semibold);
+  background: transparent;
+  box-shadow: none;
+}
+
+.daystamp-calendar__pickers {
+  display: flex;
+  gap: 0.5em;
+}
+
+.daystamp-calendar__pickers input {
+  width: 6em;
+}
+
+.daystamp-calendar__grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.125em;
+}
+
+.daystamp-calendar__row {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 0.125em;
+}
+
+.daystamp-calendar__weekday {
+  text-align: center;
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+  padding-block: 0.25em;
+}
+
+.daystamp-calendar__cell {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 2.5em; /* ≥ 40px tap target at default size */
+  border-radius: var(--radius-s);
+  border: 2px solid transparent;
+  cursor: var(--cursor);
+  font-variant-numeric: tabular-nums;
+}
+
+.daystamp-calendar__cell:hover {
+  background-color: var(--background-modifier-hover);
+}
+
+.daystamp-calendar__cell--outside {
+  color: var(--text-faint);
+}
+
+/* Today: ring + bold, not color alone. */
+.daystamp-calendar__cell--today {
+  font-weight: var(--font-bold);
+  border-color: var(--text-accent);
+}
+
+/* Selected (= focused) day: filled. */
+.daystamp-calendar__cell--selected {
+  background-color: var(--interactive-accent);
+  color: var(--text-on-accent);
+}
+
+.daystamp-calendar__cell:focus-visible {
+  outline: 2px solid var(--background-modifier-border-focus);
+  outline-offset: 2px;
+}
+
+.daystamp-calendar__footer {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5em;
+}
+
+.daystamp-calendar__preset {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  flex-wrap: wrap;
+}
+
+.daystamp-calendar__preset select {
+  flex: 1;
+  min-width: 0;
+}
+
+.daystamp-calendar__hints {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.daystamp-calendar__preview {
+  font-family: var(--font-monospace);
+  overflow-wrap: anywhere;
+}
+
+.daystamp-calendar__actions {
+  display: flex;
+  justify-content: flex-end;
+}
+
+/* ---------- Suggester ---------- */
+
+.daystamp-suggest__header {
+  font-size: var(--font-ui-smaller);
+  color: var(--text-accent);
+  margin-bottom: 0.125em;
+}
+
+/* ---------- Shared ---------- */
+
+.daystamp-badge {
+  margin-inline-start: 0.5em;
+  padding: 0 0.4em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--radius-s);
+  font-size: var(--font-ui-smaller);
+  color: var(--text-muted);
+}
+
+.daystamp-icon-button:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.daystamp-warning {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.4em;
+  color: var(--text-warning);
+}
+
+.daystamp-warning__icon {
+  flex: none;
+  display: inline-flex;
+}
+
+.daystamp-preview {
+  font-family: var(--font-monospace);
+  color: var(--text-normal);
+  margin-top: 0.25em;
+}
+
+.daystamp-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4em;
+  margin-bottom: 0.75em;
+}
+
+.daystamp-chip {
+  font-size: var(--font-ui-smaller);
+  min-height: 2em;
+}
+
+.daystamp-undo {
+  margin-inline-start: 0.75em;
+}
+
+@media (forced-colors: active) {
+  .daystamp-calendar__cell--selected {
+    background-color: Highlight;
+    color: HighlightText;
+    forced-color-adjust: none;
+  }
+
+  .daystamp-calendar__cell--today {
+    border-color: CanvasText;
+  }
+
+  .daystamp-calendar__cell:focus-visible {
+    outline-color: Highlight;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .daystamp-calendar *,
+  .daystamp-suggest * {
+    transition: none !important;
+    animation: none !important;
+  }
+}

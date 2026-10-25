@@ -1,0 +1,10 @@
+{
+  "id": "daystamp",
+  "name": "Daystamp",
+  "version": "0.1.0",
+  "minAppVersion": "1.13.0",
+  "description": "Insert dates and times in your own formats from a calendar, a ribbon icon, commands or an inline trigger.",
+  "author": "Alin Morosanu",
+  "authorUrl": "https://github.com/alin-morosanu",
+  "isDesktopOnly": false
+}
