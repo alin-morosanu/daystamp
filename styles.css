@@ -7,7 +7,7 @@
 /* ---------- Calendar modal ---------- */
 
 .daystamp-calendar-modal {
-  width: min(24em, calc(100vw - 2em));
+  width: min(27em, calc(100vw - 2em));
 }
 
 .daystamp-calendar {
