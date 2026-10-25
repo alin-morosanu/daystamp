@@ -1,8 +1,9 @@
-import { moment, Notice, Plugin } from 'obsidian';
+import { Notice, Plugin } from 'obsidian';
 
 import { sanitizeSettings } from './core/settings-schema';
 import type { FeatureContext } from './features/feature';
 import { FEATURES } from './features/index';
+import { currentMoment } from './services/clock';
 import { getEditableEditor, InsertService } from './services/insert-service';
 import { getDailyNoteFormat, isCommunityPluginEnabled } from './services/obsidian-internals';
 import { SettingsStore } from './services/settings-store';
@@ -26,7 +27,7 @@ export default class DaystampPlugin extends Plugin {
       getDailyNoteFormat: () => getDailyNoteFormat(this.app),
       isNaturalLanguageDatesEnabled: () => isCommunityPluginEnabled(this.app, NATURAL_LANGUAGE_DATES_ID)
     };
-    const now = () => moment();
+    const now = currentMoment;
     const insert = new InsertService({
       store,
       usage,

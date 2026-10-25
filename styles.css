@@ -1,7 +1,11 @@
 /* Daystamp. Obsidian theme variables only; sizes in em so 200% zoom and large fonts hold. */
 
-.daystamp-hidden {
-  display: none !important;
+/* Hidden state. The extra selectors outrank rules that set display on the same element
+   (the calendar pickers, and Obsidian's ribbon buttons) through specificity alone. */
+.daystamp-hidden,
+.daystamp-calendar .daystamp-hidden,
+body .side-dock-ribbon-action.daystamp-hidden {
+  display: none;
 }
 
 /* ---------- Calendar modal ---------- */
@@ -197,13 +201,5 @@
 
   .daystamp-calendar__cell:focus-visible {
     outline-color: Highlight;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .daystamp-calendar *,
-  .daystamp-suggest * {
-    transition: none !important;
-    animation: none !important;
   }
 }

@@ -31,6 +31,7 @@ export function openCalendar(ctx: FeatureContext, target: CalendarTarget = {}): 
     initialPresetId:
       remembered && derived.presetsById.has(remembered) ? remembered : derived.defaultPreset.id,
     weekStart: resolveWeekStart(settings.weekStartsOn, moment.localeData().firstDayOfWeek()),
+    now: ctx.now,
     preview: (presetId, day) => ctx.insert.preview({ presetId, date: day }),
     describeFailure,
     onPresetChange: (presetId) => {
