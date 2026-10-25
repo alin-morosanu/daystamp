@@ -13,7 +13,13 @@ All four ways share the same named **presets**, so a format you set up once work
 - **Presets:** any [moment.js format](docs/user/reference/format-tokens.md), day offsets (Tomorrow, Next week), and optional links to your daily notes, such as `[[2026-10-25|Sunday 25 October]]`.
 - Works on desktop and mobile, follows Obsidian's language, and is fully keyboard and screen-reader accessible.
 
-Built-in presets: **Date** `2026-10-25`, **Date+Time** `2026-10-25 14:30`, **Date+Day** `2026-10-25 Sunday`, **Date+Time+Day** `2026-10-25 14:30, Sunday` and **Tomorrow** `2026-10-26`.
+Built-in presets: 
+
+**Date** `2026-10-25`  
+**Date+Time** `2026-10-25 14:30`  
+**Date+Day** `2026-10-25 Sunday`  
+**Date+Time+Day** `2026-10-25 14:30, Sunday`
+**Tomorrow** `2026-10-26`  
 
 ## Install
 
