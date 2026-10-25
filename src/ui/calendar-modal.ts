@@ -13,6 +13,7 @@ export interface CalendarModalOptions {
   readonly initialPresetId: string;
   /** 0 = Sunday, 1 = Monday, already resolved from the setting and locale. */
   readonly weekStart: number;
+  readonly now: () => Moment;
   readonly preview: (presetId: string, day: Moment) => InsertResult;
   readonly describeFailure: (result: Extract<InsertResult, { ok: false }>) => string;
   readonly onPresetChange: (presetId: string) => void;
@@ -31,7 +32,7 @@ interface CellRef {
 
 /** Month calendar following the ARIA date-grid pattern. */
 export class CalendarModal extends Modal {
-  private focused: Moment = moment().startOf('day');
+  private focused: Moment;
   private shownMonth: Moment | null = null;
   private presetId: string;
   private picked = false;
@@ -51,6 +52,7 @@ export class CalendarModal extends Modal {
   ) {
     super(app);
     this.presetId = options.initialPresetId;
+    this.focused = options.now().startOf('day');
     this.setTitle(STRINGS.calendar.title);
     this.modalEl.addClass('daystamp-calendar-modal');
     const root = this.contentEl.createDiv({ cls: 'daystamp-calendar' });
@@ -95,7 +97,7 @@ export class CalendarModal extends Modal {
       text: STRINGS.calendar.today,
       attr: { type: 'button' }
     });
-    today.addEventListener('click', () => this.setFocused(moment(), true));
+    today.addEventListener('click', () => this.setFocused(this.options.now(), true));
     return title;
   }
 
@@ -133,8 +135,8 @@ export class CalendarModal extends Modal {
     for (const day of weekdayOrder(this.options.weekStart)) {
       head.createDiv({
         cls: 'daystamp-calendar__weekday',
-        text: locale.weekdaysMin(moment().day(day)),
-        attr: { role: 'columnheader', 'aria-label': locale.weekdays(moment().day(day)) }
+        text: locale.weekdaysMin()[day] ?? '',
+        attr: { role: 'columnheader', 'aria-label': locale.weekdays()[day] ?? '' }
       });
     }
     grid.addEventListener('keydown', (evt) => this.onGridKey(evt));
@@ -187,7 +189,7 @@ export class CalendarModal extends Modal {
     this.monthSelect.value = String(this.shownMonth.month());
     this.yearInput.value = String(this.shownMonth.year());
     this.bodyEl.empty();
-    const cells = buildMonthGrid(this.shownMonth, this.options.weekStart, moment());
+    const cells = buildMonthGrid(this.shownMonth, this.options.weekStart, this.options.now());
     this.cells = [];
     let row: HTMLElement | null = null;
     cells.forEach((cell, i) => {
@@ -249,7 +251,7 @@ export class CalendarModal extends Modal {
     const next = moveFocus(
       this.focused,
       { key: evt.key, shiftKey: evt.shiftKey },
-      { weekStart: this.options.weekStart, rtl, today: moment() }
+      { weekStart: this.options.weekStart, rtl, today: this.options.now() }
     );
     if (!next) return;
     evt.preventDefault();
